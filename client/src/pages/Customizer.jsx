@@ -51,7 +51,20 @@ const Customizer = () => {
     if(!prompt) return alert('Please enter a Prompt');
 
     try{
+      setGeneratingImg(true);
+      
+      const res = await fetch('http://localhost:8080/api/v1/dalle', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          prompt,
+        })
+      })
 
+      const data = await res.json();
+      handleDecals(type, `data:image/ppng; base64, ${data.photo}`)
     }
 
     catch(error) {
