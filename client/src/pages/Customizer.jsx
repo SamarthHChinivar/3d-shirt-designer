@@ -36,10 +36,10 @@ const Customizer = () => {
 
       case 'aipicker':
         return <AiPicker
-          prompt={prompt}
-          setPrompt={setPrompt}
-          setGeneratingImg={setGeneratingImg}
-          handleSubmit={handleSubmit}
+          // prompt={prompt}
+          // setPrompt={setPrompt}
+          // setGeneratingImg={setGeneratingImg}
+          // handleSubmit={handleSubmit}
         />
 
       default:
@@ -136,10 +136,21 @@ const Customizer = () => {
                       key={tab.name}
                       tab={tab}
                       handleClick={() => setActiveEditorTab(tab.name)}
+                      title={tab.tooltip}
                     />
                   ))}
 
                   {generateTabContent()}
+
+                  {/* Download button */}
+                  <button className='download-btn' onClick={downloadCanvasToImage}>
+                  <img
+                    src={download}
+                    alt='download_image'
+                    className='w-3/5 h-3/5 object-contain'
+                  />
+                  </button>
+                  
                 </div>
               </div> 
           </motion.div>
