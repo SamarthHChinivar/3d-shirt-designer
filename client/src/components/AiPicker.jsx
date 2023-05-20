@@ -5,7 +5,7 @@ import CustomButton from './CustomButton'
 const AiPicker = ({prompt, setPrompt, generatingImg, handleSubmit}) => {
   return (
   <div>
-    <a href='./notAvailable.html' target='_blank' rel="noopener noreferrer">Currently Not Available</a>
+    <a href='./notAvailable.html' target='_blank' rel='noopener noreferrer'>Currently Not Available</a>
   </div>
   
     // <div className='aipicker-container'>
