@@ -1,3 +1,5 @@
-# 3d-shirt-designer
+# 3D Shirt Designer
 
-<img src='https://d3ui957tjb5bqd.cloudfront.net/uploads/2013/02/7-Under-Construction-Page-Templates-by-Asif-Aleem.png' />
+- Design your shirts by changing colour, logo, texture of the shirt in this amazing 3D Shirt Designer website.
+- 3D Shirt Desinger website built using React.js and Three.js.
+- This website is deployed on <a href='https://3d-shirt-designer-samarthhchinivar.vercel.app'>https://3d-shirt-designer-samarthhchinivar.vercel.app</a>.
