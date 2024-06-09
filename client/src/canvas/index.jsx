@@ -14,7 +14,7 @@ const CanvasModel = () => {
     >
       
       <ambientLight intensity={0.5} />
-      <Environment preset='city'/>
+      <Environment preset='sunset'/>
 
       <CameraRig>
         <Backdrop />
@@ -23,7 +23,7 @@ const CanvasModel = () => {
         </Center>
       </CameraRig>
     </Canvas>
-  )
-}
+  );
+};
 
-export default CanvasModel
+export default CanvasModel;

@@ -1,14 +1,15 @@
 import React from 'react'
-import {easing} from 'maath'
-import { useSnapshot} from 'valtio'
-import {useFrame} from '@react-three/fiber'
-import {Decal, useTexture, useGLTF} from '@react-three/drei'
-import state from '../store'
+import { easing } from 'maath';
+import { useSnapshot } from 'valtio';
+import { useFrame } from '@react-three/fiber';
+import { Decal, useGLTF, useTexture } from '@react-three/drei';
+
+import state from '../store';
 
 const Shirt = () => {
   const snap = useSnapshot(state);
-  const {nodes, materials} = useGLTF('/shirt_baked.glb');
-  
+  const { nodes, materials } = useGLTF('/shirt_baked.glb');
+
   const logoTexture = useTexture(snap.logoDecal);
   const fullTexture = useTexture(snap.fullDecal);
 
@@ -17,7 +18,7 @@ const Shirt = () => {
   const stateString = JSON.stringify(snap);
 
   return (
-    <group key={stateString} >
+    <group key={stateString}>
       <mesh
         castShadow
         geometry={nodes.T_Shirt_male.geometry}
@@ -25,6 +26,7 @@ const Shirt = () => {
         material-roughness={1}
         dispose={null}
       >
+        {/* T-shirt full texture */}
         {snap.isFullTexture && (
           <Decal 
             position={[0, 0, 0]}
@@ -34,20 +36,26 @@ const Shirt = () => {
           />
         )}
 
-          {snap.isLogoTexture && (
-            <Decal 
-              position={[0, 0.04, 0.15]}
-              rotation={[0, 0, 0]}
-              scale={0.15}
-              map={logoTexture}
-              map-anisotropy={16}
-              depthTest={false}
-              depthWrite={true}
-            />
+        {/* T-shirt logo */}
+        {snap.isLogoTexture && (
+          <Decal 
+            position={[0, 0.04, 0.15]}
+            rotation={[0, 0, 0]}
+            scale={0.15}
+            map={logoTexture}
+            {...{ mapAnisotropy: 16, depthTest: false, depthWrite: true }}
+          />
         )}
       </mesh>
     </group>
   )
 }
 
-export default Shirt
+export default Shirt;
+
+/* The properties mapAnisotropy, depthTest, and depthWrite were not recognized in the first version of the code because they were not defined as valid props for the Decal component.
+
+In React, components can only receive and recognize props that are explicitly defined and expected by the component. When you pass a prop to a component that is not recognized or expected, React will ignore that prop and it will not have any effect on the component. 
+
+By using the spread syntax in the second version, these properties are properly spread onto the Decal component, allowing it to receive and utilize the additional properties correctly.
+*/

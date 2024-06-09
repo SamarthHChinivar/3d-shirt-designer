@@ -15,7 +15,7 @@ const Customizer = () => {
   const [file, setFile] = useState('');
   const [prompt, setPrompt] = useState('');
   const [generatingImg, setGeneratingImg] = useState(false);
-  const [activeEditorTab, setActiveEditorTab] = useState('');
+  const [activeEditorTab, setActiveEditorTab] = useState(false);
   const [activeFilterTab, setActiveFilterTab] = useState({
     logoShirt: true,
     stylishShirt: false
@@ -36,6 +36,8 @@ const Customizer = () => {
 
       case 'aipicker':
         return <AiPicker
+        activeEditorTab={activeEditorTab}
+        setActiveEditorTab = {setActiveEditorTab}
           // prompt={prompt}
           // setPrompt={setPrompt}
           // setGeneratingImg={setGeneratingImg}
@@ -73,7 +75,7 @@ const Customizer = () => {
 
     finally {
       setGeneratingImg(false);
-      setActiveEditorTab('');
+      setActiveEditorTab(false);
     }
 
   }
@@ -116,7 +118,7 @@ const Customizer = () => {
   const readFile = (type) => {
     reader(file).then((result) => {
       handleDecals(type, result);
-      setActiveEditorTab('');
+      setActiveEditorTab(false);
     })
   }
 
@@ -135,7 +137,13 @@ const Customizer = () => {
                     <Tab 
                       key={tab.name}
                       tab={tab}
-                      handleClick={() => setActiveEditorTab(tab.name)}
+                      handleClick={() => {
+                        console.log('pre selection :>> ',activeEditorTab)
+                        {activeEditorTab === false  ? setActiveEditorTab(tab.name) 
+                          : setActiveEditorTab(false);}
+                        console.log('post selection :>> ',activeEditorTab);
+                        
+                      }}
                       title={tab.tooltip}
                     />
                   ))}

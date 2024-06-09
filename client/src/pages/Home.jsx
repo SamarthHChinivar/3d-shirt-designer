@@ -27,8 +27,8 @@ const Home = () => {
                             <h1 className='head-text'>LET'S <br className='x1:block hidden' /> DO IT</h1>
                         </motion.div>
 
-                        <motion.div {...headContentAnimation} className='flex flex-col gap-5'> 
-                            <p className='max-w-md font-normal text-gray-600 text-base'>Create your unique and exclusive shirt with our brand-new 3D Shirt Designer Web App. <strong>Unleash your imagination</strong>{" "} and define your own style.</p>
+                        <motion.div {...headContentAnimation} className='flex flex-col gap-6'> 
+                            <h3 className='max-w-md font-medium text-black-600 text-xl'>Create your unique and exclusive shirt with our brand-new 3D Shirt Designer Web App. <strong className='font-black'>Unleash your imagination</strong>{" "} and define your own style.</h3>
 
                             <CustomButton 
                                 type='filled'
