@@ -9,7 +9,7 @@ const AiPicker = ({
 	handleSubmit,
 }) => {
 	useEffect(() => {
-		console.log("activeEditorTab ", activeEditorTab);
+		//console.log("activeEditorTab ", activeEditorTab);
     if (activeEditorTab === "aipicker") {
 			handleAlert();
       setActiveEditorTab(false);

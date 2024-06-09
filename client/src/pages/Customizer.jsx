@@ -138,10 +138,10 @@ const Customizer = () => {
                       key={tab.name}
                       tab={tab}
                       handleClick={() => {
-                        console.log('pre selection :>> ',activeEditorTab)
+                        //console.log('pre selection :>> ',activeEditorTab)
                         {activeEditorTab === false  ? setActiveEditorTab(tab.name) 
                           : setActiveEditorTab(false);}
-                        console.log('post selection :>> ',activeEditorTab);
+                        //console.log('post selection :>> ',activeEditorTab);
                         
                       }}
                       title={tab.tooltip}
